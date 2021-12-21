@@ -18,6 +18,7 @@ module.exports = {
       },
     })
       .then((response) => {
+        console.log('리스폰스데이터', response.data)
         accessToken = response.data.access_token
         // console.log('acc:' + accessToken)
         res.status(200).json({ accessToken: accessToken })

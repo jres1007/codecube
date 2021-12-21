@@ -1,6 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, Component } from 'react'
 import { Routes, Route, useNavigate, Link } from 'react-router-dom'
 import axios from 'axios'
+require('dotenv').config()
+const client_id = process.env.GITHUB_CLIENT_ID
+const client_secret = process.env.GITHUB_CLIENT_SECRET
 
 import styled from 'styled-components'
 // import './beforeLogin.css'
@@ -102,6 +105,16 @@ const Login = (props) => {
     }
   }
 
+  // const gitloginhandler = async () => {
+  //   // await axios.post('http://localhost:4000/github/callback').then((res) => {
+  //   //   console.log(res.data)
+  //   // })
+  //   window.location.assign(
+  //     'https://github.com/login/oauth/authorize?client_id=' + client_id
+  //   )
+
+  // }
+
   return (
     // <Login>
     //   <div>로그인 화면이 있다고 가정.</div>
@@ -139,10 +152,14 @@ const Login = (props) => {
       </div>
       <div className="lo02A th50A login02A">
         <div className="zh40A snslogolistA">
-          <a href="https://www.google.com">
-            <img className="snslogoA zw10A" src="" alt="github" />
-          </a>
+          <img
+            className="snslogoA zw10A"
+            src=""
+            alt="github"
+            onClick={props.gitloginhandler}
+          />
         </div>
+        <input type="button" onClick={props.gitloginhandler} value="깃헙로그인!"></input>
         <div className="zh40A">소셜로그인</div>
         {/* <Link to="/signup"> */}
 
