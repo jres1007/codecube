@@ -5,6 +5,7 @@ const axios = require('axios')
 
 module.exports = {
   callback: async (req, res) => {
+    console.log('깃헙에서받은 코드 ', req.body)
     axios({
       method: 'post',
       url: 'https://github.com/login/oauth/access_token',
